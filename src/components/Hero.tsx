@@ -15,7 +15,10 @@ export function Hero() {
       />
       {/* Glow orbs */}
       <div className="pointer-events-none absolute left-[10%] top-[20%] h-72 w-72 rounded-full bg-[var(--neon-blue)]/20 blur-3xl animate-float" />
-      <div className="pointer-events-none absolute right-[10%] bottom-[15%] h-96 w-96 rounded-full bg-[var(--neon-purple)]/20 blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+      <div
+        className="pointer-events-none absolute right-[10%] bottom-[15%] h-96 w-96 rounded-full bg-[var(--neon-purple)]/20 blur-3xl animate-float"
+        style={{ animationDelay: "2s" }}
+      />
 
       <div className="relative mx-auto max-w-5xl text-center">
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--neon-blue)]/30 bg-[var(--neon-blue)]/5 px-4 py-1.5 text-xs font-medium text-[var(--neon-cyan)] backdrop-blur">
@@ -33,7 +36,9 @@ export function Hero() {
         </h1>
 
         <p className="mx-auto mt-8 max-w-2xl text-base text-muted-foreground sm:text-lg">
-          I'm <span className="font-medium text-foreground">Onyerionwu Prince</span> — an Information Technology student & web developer from Nigeria, crafting fast, beautiful, and challenging products with React, TypeScript and a love for clean code.
+          I'm <span className="font-medium text-foreground">Onyerionwu Prince</span> — an
+          Information Technology student & web developer from Nigeria, crafting fast, beautiful, and
+          challenging products with React, TypeScript and a love for clean code.
         </p>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">

@@ -27,11 +27,16 @@ export function Nav({ onOpenPalette }: { onOpenPalette: () => void }) {
       }`}
     >
       <div className="flex items-center justify-between px-4 py-3 sm:px-6">
-        <a href="#top" className="flex items-center gap-2 font-display font-semibold tracking-tight">
+        <a
+          href="#top"
+          className="flex items-center gap-2 font-display font-semibold tracking-tight"
+        >
           <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-[var(--neon-cyan)] via-[var(--neon-blue)] to-[var(--neon-purple)] text-sm font-bold text-background shadow-[var(--shadow-glow)]">
             P
           </span>
-          <span className="hidden sm:inline">prince<span className="text-muted-foreground">.dev</span></span>
+          <span className="hidden sm:inline">
+            prince<span className="text-muted-foreground">.dev</span>
+          </span>
         </a>
         <nav className="hidden items-center gap-1 md:flex">
           {links.map((l) => (

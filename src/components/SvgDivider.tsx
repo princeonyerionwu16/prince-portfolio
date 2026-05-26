@@ -9,12 +9,7 @@ export function SvgDivider() {
             <stop offset="100%" stopColor="oklch(0.68 0.24 295)" stopOpacity="0" />
           </linearGradient>
         </defs>
-        <path
-          d="M0 40 Q 300 10 600 40 T 1200 40"
-          fill="none"
-          stroke="url(#dg)"
-          strokeWidth="1.5"
-        />
+        <path d="M0 40 Q 300 10 600 40 T 1200 40" fill="none" stroke="url(#dg)" strokeWidth="1.5" />
       </svg>
     </div>
   );

@@ -12,8 +12,17 @@ export function LiveWidgets() {
     return () => clearInterval(t);
   }, []);
 
-  const time = now ? now.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false }) : "--:--:--";
-  const date = now ? now.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" }) : "—";
+  const time = now
+    ? now.toLocaleTimeString("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
+      })
+    : "--:--:--";
+  const date = now
+    ? now.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" })
+    : "—";
 
   return (
     <section className="relative mx-auto max-w-6xl px-4 py-16">
@@ -24,7 +33,9 @@ export function LiveWidgets() {
             <Zap className="h-3.5 w-3.5" />
             now working on
           </div>
-          <p className="mt-3 font-display text-lg font-semibold">Building a real-time collaboration tool</p>
+          <p className="mt-3 font-display text-lg font-semibold">
+            Building a real-time collaboration tool
+          </p>
           <p className="mt-1 text-sm text-muted-foreground">
             Exploring CRDTs and WebSockets for offline-first multiplayer editing.
           </p>
@@ -42,7 +53,9 @@ export function LiveWidgets() {
             <Clock className="h-3.5 w-3.5" />
             local time
           </div>
-          <p className="mt-3 font-mono text-3xl font-semibold tabular-nums text-gradient-neon">{time}</p>
+          <p className="mt-3 font-mono text-3xl font-semibold tabular-nums text-gradient-neon">
+            {time}
+          </p>
           <p className="mt-1 text-xs text-muted-foreground">{date} · WAT</p>
         </div>
 
@@ -59,7 +72,10 @@ export function LiveWidgets() {
               <span
                 key={i}
                 className="w-1 rounded-sm bg-gradient-to-t from-[var(--neon-blue)] to-[var(--neon-purple)]"
-                style={{ height: `${h * 3}px`, animation: `pulse-glow ${0.8 + i * 0.07}s ease-in-out infinite` }}
+                style={{
+                  height: `${h * 3}px`,
+                  animation: `pulse-glow ${0.8 + i * 0.07}s ease-in-out infinite`,
+                }}
               />
             ))}
           </div>
@@ -72,14 +88,20 @@ export function LiveWidgets() {
               <Eye className="h-5 w-5" />
             </div>
             <div>
-              <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">visitor count</p>
+              <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+                visitor count
+              </p>
               <p className="font-display text-lg font-semibold tabular-nums">
-                {visitors.toLocaleString()} <span className="text-sm font-normal text-muted-foreground">curious souls have stopped by</span>
+                {visitors.toLocaleString()}{" "}
+                <span className="text-sm font-normal text-muted-foreground">
+                  curious souls have stopped by
+                </span>
               </p>
             </div>
           </div>
           <p className="font-mono text-xs text-muted-foreground">
-            you're visitor <span className="text-foreground">#{(visitors + 1).toLocaleString()}</span> · welcome 👋
+            you're visitor{" "}
+            <span className="text-foreground">#{(visitors + 1).toLocaleString()}</span> · welcome 👋
           </p>
         </div>
       </div>

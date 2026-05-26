@@ -9,7 +9,8 @@ export function MouseLight() {
     let raf = 0;
     let tx = window.innerWidth / 2;
     let ty = window.innerHeight / 2;
-    let cx = tx, cy = ty;
+    let cx = tx,
+      cy = ty;
 
     const onMove = (e: MouseEvent) => {
       tx = e.clientX;

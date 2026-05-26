@@ -3,12 +3,19 @@ import { Check, Copy, Github, Mail, Twitter, Linkedin, Send, Loader2 } from "luc
 import { z } from "zod";
 import { toast } from "sonner";
 
-const EMAIL = "hello@prince.dev";
+const EMAIL = "princeonyerionwu16@gmail.com";
+const GITHUB_URL = "https://github.com/princeonyerionwu16";
+const TWITTER_URL = "https://x.com/PrinxxO6";
+const LINKEDIN_URL = "https://www.linkedin.com/in/onyerionwu-prince-6a94963a2";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Please enter your name").max(100, "Name is too long"),
   email: z.string().trim().email("Enter a valid email").max(255, "Email is too long"),
-  message: z.string().trim().min(10, "Message should be at least 10 characters").max(1000, "Message is too long"),
+  message: z
+    .string()
+    .trim()
+    .min(10, "Message should be at least 10 characters")
+    .max(1000, "Message is too long"),
 });
 
 type FieldErrors = Partial<Record<"name" | "email" | "message", string>>;
@@ -24,13 +31,16 @@ export function Contact() {
       await navigator.clipboard.writeText(EMAIL);
       setCopied(true);
       setTimeout(() => setCopied(false), 1800);
-    } catch {}
+    } catch {
+      toast.error("Unable to copy email.");
+    }
   };
 
-  const update = (key: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm((f) => ({ ...f, [key]: e.target.value }));
-    if (errors[key]) setErrors((p) => ({ ...p, [key]: undefined }));
-  };
+  const update =
+    (key: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      setForm((f) => ({ ...f, [key]: e.target.value }));
+      if (errors[key]) setErrors((p) => ({ ...p, [key]: undefined }));
+    };
 
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -47,7 +57,9 @@ export function Contact() {
     setSubmitting(true);
     // Frontend-only: open the user's mail client with a prefilled message.
     const subject = encodeURIComponent(`Portfolio inquiry from ${parsed.data.name}`);
-    const body = encodeURIComponent(`${parsed.data.message}\n\n— ${parsed.data.name}\n${parsed.data.email}`);
+    const body = encodeURIComponent(
+      `${parsed.data.message}\n\n— ${parsed.data.name}\n${parsed.data.email}`,
+    );
     setTimeout(() => {
       window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
       toast.success("Opening your email app…", {
@@ -67,13 +79,16 @@ export function Contact() {
         <div className="relative grid gap-10 lg:grid-cols-2 lg:gap-14">
           {/* Left: pitch + email + socials */}
           <div>
-            <p className="mb-3 text-xs font-mono uppercase tracking-[0.3em] text-[var(--neon-cyan)]">// let's talk</p>
+            <p className="mb-3 text-xs font-mono uppercase tracking-[0.3em] text-[var(--neon-cyan)]">
+              // let's talk
+            </p>
             <h2 className="font-display text-4xl font-bold tracking-tight sm:text-5xl">
               Have an idea? <br />
               <span className="text-gradient-neon">Let's build it.</span>
             </h2>
             <p className="mt-5 max-w-md text-muted-foreground">
-              Open to freelance projects, internships, and ambitious collaborations. I usually reply within 24 hours.
+              Open to freelance projects, internships, and ambitious collaborations. I usually reply
+              within 24 hours.
             </p>
 
             <div className="mt-8 inline-flex items-center gap-1 rounded-2xl border border-border/60 bg-background/60 p-1.5 backdrop-blur">
@@ -90,14 +105,16 @@ export function Contact() {
 
             <div className="mt-10 flex gap-3">
               {[
-                { icon: Github, label: "GitHub" },
-                { icon: Twitter, label: "Twitter" },
-                { icon: Linkedin, label: "LinkedIn" },
-                { icon: Mail, label: "Email" },
-              ].map(({ icon: Icon, label }) => (
+                { icon: Github, label: "GitHub", href: GITHUB_URL },
+                { icon: Twitter, label: "Twitter", href: TWITTER_URL },
+                { icon: Linkedin, label: "LinkedIn", href: LINKEDIN_URL },
+                { icon: Mail, label: "Email", href: `mailto:${EMAIL}` },
+              ].map(({ icon: Icon, label, href }) => (
                 <a
                   key={label}
-                  href="#"
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noreferrer" : undefined}
                   aria-label={label}
                   className="grid h-11 w-11 place-items-center rounded-xl border border-border/60 bg-surface/60 text-muted-foreground backdrop-blur transition hover:-translate-y-0.5 hover:border-[var(--neon-blue)]/50 hover:text-foreground"
                 >
@@ -115,7 +132,10 @@ export function Contact() {
           >
             <div className="space-y-4">
               <div>
-                <label htmlFor="contact-name" className="mb-1.5 block text-xs font-mono uppercase tracking-wider text-muted-foreground">
+                <label
+                  htmlFor="contact-name"
+                  className="mb-1.5 block text-xs font-mono uppercase tracking-wider text-muted-foreground"
+                >
                   Your name
                 </label>
                 <input
@@ -132,7 +152,10 @@ export function Contact() {
               </div>
 
               <div>
-                <label htmlFor="contact-email" className="mb-1.5 block text-xs font-mono uppercase tracking-wider text-muted-foreground">
+                <label
+                  htmlFor="contact-email"
+                  className="mb-1.5 block text-xs font-mono uppercase tracking-wider text-muted-foreground"
+                >
                   Email
                 </label>
                 <input
@@ -149,7 +172,10 @@ export function Contact() {
               </div>
 
               <div>
-                <label htmlFor="contact-message" className="mb-1.5 block text-xs font-mono uppercase tracking-wider text-muted-foreground">
+                <label
+                  htmlFor="contact-message"
+                  className="mb-1.5 block text-xs font-mono uppercase tracking-wider text-muted-foreground"
+                >
                   Message
                 </label>
                 <textarea
@@ -167,7 +193,9 @@ export function Contact() {
                   ) : (
                     <span className="text-muted-foreground/60">Min 10 characters</span>
                   )}
-                  <span className="font-mono text-muted-foreground/60">{form.message.length}/1000</span>
+                  <span className="font-mono text-muted-foreground/60">
+                    {form.message.length}/1000
+                  </span>
                 </div>
               </div>
 
@@ -202,7 +230,7 @@ export function Footer() {
   return (
     <footer className="border-t border-border/40 px-4 py-10">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-xs text-muted-foreground sm:flex-row">
-        <p>© {year} Onyerionwu Prince. Crafted with care in Nigeria.</p>
+        <p>© {year} Onyerionwu Prince.</p>
         <p className="font-mono">
           Built with React · TypeScript · Tailwind ·{" "}
           <span className="text-[var(--neon-cyan)]">v1.0.0</span>

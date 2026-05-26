@@ -1,7 +1,22 @@
 import { useEffect, useState } from "react";
-import { Search, ArrowRight, Hash, Folder, Mail, Github, FileText, Terminal as TermIcon } from "lucide-react";
+import {
+  Search,
+  ArrowRight,
+  Hash,
+  Folder,
+  Mail,
+  Github,
+  FileText,
+  Terminal as TermIcon,
+} from "lucide-react";
 
-type Item = { id: string; label: string; icon: React.ComponentType<{ className?: string }>; href: string; group: string };
+type Item = {
+  id: string;
+  label: string;
+  icon: React.ComponentType<{ className?: string }>;
+  href: string;
+  group: string;
+};
 
 const items: Item[] = [
   { id: "about", label: "About", icon: Hash, href: "#about", group: "Navigate" },
@@ -11,8 +26,20 @@ const items: Item[] = [
   { id: "activity", label: "GitHub activity", icon: Hash, href: "#activity", group: "Navigate" },
   { id: "writing", label: "Writing", icon: FileText, href: "#writing", group: "Navigate" },
   { id: "contact", label: "Contact", icon: Mail, href: "#contact", group: "Navigate" },
-  { id: "email", label: "Copy email", icon: Mail, href: "mailto:hello@prince.dev", group: "Actions" },
-  { id: "gh", label: "Open GitHub", icon: Github, href: "https://github.com", group: "Actions" },
+  {
+    id: "email",
+    label: "Copy email",
+    icon: Mail,
+    href: "mailto:princeonyerionwu16@gmail.com",
+    group: "Actions",
+  },
+  {
+    id: "gh",
+    label: "Open GitHub",
+    icon: Github,
+    href: "https://github.com/princeonyerionwu16",
+    group: "Actions",
+  },
 ];
 
 export function CommandPalette({ open, onClose }: { open: boolean; onClose: () => void }) {
@@ -60,7 +87,10 @@ export function CommandPalette({ open, onClose }: { open: boolean; onClose: () =
   }, {});
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-start justify-center px-4 pt-[12vh]" onClick={onClose}>
+    <div
+      className="fixed inset-0 z-[100] flex items-start justify-center px-4 pt-[12vh]"
+      onClick={onClose}
+    >
       <div className="absolute inset-0 bg-background/70 backdrop-blur-md" />
       <div
         className="relative w-full max-w-xl overflow-hidden rounded-2xl border border-border/60 bg-[oklch(0.18_0.025_270)] shadow-[var(--shadow-elevated)] animate-scale-in"
@@ -75,16 +105,22 @@ export function CommandPalette({ open, onClose }: { open: boolean; onClose: () =
             placeholder="Type a command or search…"
             className="flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground"
           />
-          <kbd className="rounded border border-border/60 bg-background/60 px-1.5 py-0.5 font-mono text-[10px]">ESC</kbd>
+          <kbd className="rounded border border-border/60 bg-background/60 px-1.5 py-0.5 font-mono text-[10px]">
+            ESC
+          </kbd>
         </div>
 
         <div className="max-h-[50vh] overflow-y-auto p-2">
           {filtered.length === 0 ? (
-            <p className="px-4 py-10 text-center text-sm text-muted-foreground">No results for "{q}"</p>
+            <p className="px-4 py-10 text-center text-sm text-muted-foreground">
+              No results for "{q}"
+            </p>
           ) : (
             Object.entries(groups).map(([group, list]) => (
               <div key={group} className="mb-2">
-                <p className="px-3 pb-1 pt-2 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">{group}</p>
+                <p className="px-3 pb-1 pt-2 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                  {group}
+                </p>
                 {list.map((i) => {
                   const idx = filtered.indexOf(i);
                   const isActive = idx === active;
@@ -101,7 +137,9 @@ export function CommandPalette({ open, onClose }: { open: boolean; onClose: () =
                         onClose();
                       }}
                       className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm transition ${
-                        isActive ? "bg-gradient-to-r from-[var(--neon-blue)]/20 to-[var(--neon-purple)]/20 text-foreground" : "text-muted-foreground"
+                        isActive
+                          ? "bg-gradient-to-r from-[var(--neon-blue)]/20 to-[var(--neon-purple)]/20 text-foreground"
+                          : "text-muted-foreground"
                       }`}
                     >
                       <span className="flex items-center gap-3">

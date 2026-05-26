@@ -6,9 +6,12 @@ export function BentoAbout() {
   return (
     <section id="about" className="relative mx-auto max-w-6xl px-4 py-32">
       <Reveal>
-        <p className="mb-3 text-xs font-mono uppercase tracking-[0.3em] text-[var(--neon-cyan)]">// about</p>
+        <p className="mb-3 text-xs font-mono uppercase tracking-[0.3em] text-[var(--neon-cyan)]">
+          // about
+        </p>
         <h2 className="mb-12 max-w-2xl font-display text-4xl font-bold tracking-tight sm:text-5xl">
-          A developer who treats <span className="text-gradient">every project</span> like a challenge worth winning.
+          A developer who treats <span className="text-gradient">every project</span> like a
+          challenge worth winning.
         </h2>
       </Reveal>
 
@@ -27,8 +30,12 @@ export function BentoAbout() {
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
             <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-[var(--neon-blue)]/20" />
             <div className="absolute bottom-4 left-4 right-4">
-              <p className="text-xs font-mono uppercase tracking-[0.25em] text-[var(--neon-cyan)]">// the human</p>
-              <p className="mt-1 font-display text-lg font-semibold leading-tight">Onyerionwu Prince</p>
+              <p className="text-xs font-mono uppercase tracking-[0.25em] text-[var(--neon-cyan)]">
+                // the human
+              </p>
+              <p className="mt-1 font-display text-lg font-semibold leading-tight">
+                Onyerionwu Prince
+              </p>
               <p className="text-xs text-muted-foreground">Lagos · Nigeria</p>
             </div>
           </div>
@@ -39,9 +46,13 @@ export function BentoAbout() {
           <div className="group relative h-full overflow-hidden rounded-2xl border border-border/60 bg-[var(--gradient-card)] p-6 transition hover:border-[var(--neon-blue)]/50">
             <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-[var(--neon-blue)]/20 blur-3xl transition group-hover:bg-[var(--neon-purple)]/30" />
             <Brain className="h-8 w-8 text-[var(--neon-cyan)]" />
-            <h3 className="mt-4 font-display text-2xl font-semibold">Curious by nature, builder by trade.</h3>
+            <h3 className="mt-4 font-display text-2xl font-semibold">
+              Curious by nature, builder by trade.
+            </h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              I'm an IT student who fell in love with the web through tinkering — breaking things, fixing them, and shipping. From clean UIs in React to scripts in Python and lower-level C++, I'm always reaching for the next challenge.
+              I'm an IT student who fell in love with the web through tinkering — breaking things,
+              fixing them, and shipping. From clean UIs in React to scripts in Python and
+              lower-level C++, I'm always reaching for the next challenge.
             </p>
           </div>
         </Reveal>
@@ -50,7 +61,9 @@ export function BentoAbout() {
         <Reveal delay={80}>
           <div className="relative h-full overflow-hidden rounded-2xl border border-border/60 bg-surface/60 p-5 backdrop-blur">
             <Globe2 className="h-6 w-6 text-[var(--neon-purple)]" />
-            <p className="mt-3 text-xs font-mono uppercase tracking-wider text-muted-foreground">based in</p>
+            <p className="mt-3 text-xs font-mono uppercase tracking-wider text-muted-foreground">
+              based in
+            </p>
             <p className="font-display text-lg font-semibold">Nigeria 🇳🇬</p>
             <p className="text-xs text-muted-foreground">Working globally</p>
           </div>
@@ -69,7 +82,9 @@ export function BentoAbout() {
         <Reveal delay={200}>
           <div className="relative h-full overflow-hidden rounded-2xl border border-border/60 bg-surface/60 p-5">
             <Rocket className="h-6 w-6 text-[var(--neon-cyan)]" />
-            <p className="mt-3 text-xs font-mono uppercase tracking-wider text-muted-foreground">currently</p>
+            <p className="mt-3 text-xs font-mono uppercase tracking-wider text-muted-foreground">
+              currently
+            </p>
             <p className="font-display text-lg font-semibold">Full-stack & UI engineering</p>
           </div>
         </Reveal>
@@ -88,8 +103,7 @@ export function BentoAbout() {
           <div className="relative flex h-full items-center gap-4 overflow-hidden rounded-2xl border border-border/60 bg-surface/60 p-5">
             <Heart className="h-6 w-6 shrink-0 text-[var(--neon-cyan)]" />
             <p className="text-sm text-muted-foreground">
-              I believe great software is{" "}
-              <span className="text-foreground">fast</span>,{" "}
+              I believe great software is <span className="text-foreground">fast</span>,{" "}
               <span className="text-foreground">accessible</span>, and{" "}
               <span className="text-foreground">delightful</span> — never one without the others.
             </p>

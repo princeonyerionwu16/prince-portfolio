@@ -1,7 +1,24 @@
 const stack = [
-  "React", "TypeScript", "Next.js", "Node.js", "Tailwind CSS", "Vite",
-  "Python", "C++", "MySQL", "PostgreSQL", "Git", "GitHub", "Figma",
-  "Framer Motion", "Three.js", "REST APIs", "GraphQL", "Docker", "Linux", "AI / LLMs",
+  "React",
+  "TypeScript",
+  "Next.js",
+  "Node.js",
+  "Tailwind CSS",
+  "Vite",
+  "Python",
+  "C++",
+  "MySQL",
+  "PostgreSQL",
+  "Git",
+  "GitHub",
+  "Figma",
+  "Framer Motion",
+  "Three.js",
+  "REST APIs",
+  "GraphQL",
+  "Docker",
+  "Linux",
+  "AI / LLMs",
 ];
 
 export function TechMarquee() {
@@ -9,7 +26,9 @@ export function TechMarquee() {
   return (
     <section id="stack" className="relative overflow-hidden py-20">
       <div className="mx-auto mb-10 max-w-6xl px-4">
-        <p className="mb-3 text-xs font-mono uppercase tracking-[0.3em] text-[var(--neon-cyan)]">// stack</p>
+        <p className="mb-3 text-xs font-mono uppercase tracking-[0.3em] text-[var(--neon-cyan)]">
+          // stack
+        </p>
         <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
           Tools I reach for <span className="text-gradient">every day</span>
         </h2>

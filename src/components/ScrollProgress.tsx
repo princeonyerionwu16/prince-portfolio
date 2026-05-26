@@ -17,7 +17,8 @@ export function ScrollProgress() {
         className="h-full origin-left transition-[width] duration-75"
         style={{
           width: `${p}%`,
-          background: "linear-gradient(90deg, var(--neon-cyan), var(--neon-blue), var(--neon-purple))",
+          background:
+            "linear-gradient(90deg, var(--neon-cyan), var(--neon-blue), var(--neon-purple))",
           boxShadow: "0 0 12px var(--neon-blue)",
         }}
       />

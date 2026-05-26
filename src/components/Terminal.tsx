@@ -10,7 +10,7 @@ const lines = [
   { type: "in", text: "echo $LOCATION" },
   { type: "out", text: "Lagos, Nigeria 🇳🇬 — open to remote" },
   { type: "in", text: "contact --email" },
-  { type: "out", text: "→ hello@prince.dev" },
+  { type: "out", text: "→ princeonyerionwu16@gmail.com" },
 ];
 
 export function Terminal() {
@@ -49,7 +49,9 @@ export function Terminal() {
 
   return (
     <section id="terminal" className="relative mx-auto max-w-5xl px-4 py-24">
-      <p className="mb-3 text-xs font-mono uppercase tracking-[0.3em] text-[var(--neon-cyan)]">// terminal</p>
+      <p className="mb-3 text-xs font-mono uppercase tracking-[0.3em] text-[var(--neon-cyan)]">
+        // terminal
+      </p>
       <h2 className="mb-10 font-display text-3xl font-bold tracking-tight sm:text-4xl">
         Say hi the <span className="text-gradient">developer way</span>
       </h2>
@@ -83,7 +85,9 @@ function Line({ line, cursor }: { line: { type: string; text: string }; cursor?:
           <span className="mr-2 select-none text-[var(--neon-purple)]">~</span>
           <span className="text-foreground">
             {line.text}
-            {cursor && <span className="ml-0.5 inline-block h-4 w-2 -translate-y-[-2px] bg-[var(--neon-cyan)] align-middle animate-blink" />}
+            {cursor && (
+              <span className="ml-0.5 inline-block h-4 w-2 -translate-y-[-2px] bg-[var(--neon-cyan)] align-middle animate-blink" />
+            )}
           </span>
         </>
       ) : (

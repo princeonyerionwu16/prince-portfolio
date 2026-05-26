@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 const snippet = [
   { t: "// hooks/useDebounce.ts", c: "text-muted-foreground" },
-  { t: "import { useEffect, useState } from \"react\";", c: "text-foreground" },
+  { t: 'import { useEffect, useState } from "react";', c: "text-foreground" },
   { t: "", c: "" },
   { t: "export function useDebounce<T>(value: T, delay = 300) {", c: "text-foreground" },
   { t: "  const [debounced, setDebounced] = useState(value);", c: "text-foreground" },
@@ -23,18 +23,21 @@ export function CodeShowcase() {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const io = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) {
-        let i = 0;
-        const tick = () => {
-          i++;
-          setVisible(i);
-          if (i < snippet.length) setTimeout(tick, 90);
-        };
-        tick();
-        io.disconnect();
-      }
-    }, { threshold: 0.3 });
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) {
+          let i = 0;
+          const tick = () => {
+            i++;
+            setVisible(i);
+            if (i < snippet.length) setTimeout(tick, 90);
+          };
+          tick();
+          io.disconnect();
+        }
+      },
+      { threshold: 0.3 },
+    );
     io.observe(el);
     return () => io.disconnect();
   }, []);
@@ -43,15 +46,23 @@ export function CodeShowcase() {
     <section className="relative mx-auto max-w-6xl px-4 py-24" ref={ref}>
       <div className="grid gap-10 md:grid-cols-2 md:items-center">
         <div>
-          <p className="mb-3 text-xs font-mono uppercase tracking-[0.3em] text-[var(--neon-cyan)]">// craft</p>
+          <p className="mb-3 text-xs font-mono uppercase tracking-[0.3em] text-[var(--neon-cyan)]">
+            // craft
+          </p>
           <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
             Code that <span className="text-gradient">reads like prose</span>
           </h2>
           <p className="mt-4 max-w-md text-muted-foreground">
-            I obsess over readability, performance, and the tiny details. Every component is built to scale, every function tested, every animation tuned.
+            I obsess over readability, performance, and the tiny details. Every component is built
+            to scale, every function tested, every animation tuned.
           </p>
           <ul className="mt-6 space-y-2 text-sm">
-            {["Type-safe end to end", "Accessible by default", "Zero-jank animations", "Clean git history"].map((f) => (
+            {[
+              "Type-safe end to end",
+              "Accessible by default",
+              "Zero-jank animations",
+              "Clean git history",
+            ].map((f) => (
               <li key={f} className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-[var(--neon-cyan)] to-[var(--neon-purple)]" />
                 <span className="text-muted-foreground">{f}</span>
@@ -72,7 +83,9 @@ export function CodeShowcase() {
           <pre className="overflow-x-auto p-5 font-mono text-[13px] leading-6">
             {snippet.slice(0, visible).map((l, i) => (
               <div key={i} className="flex">
-                <span className="mr-4 w-6 select-none text-right text-muted-foreground/50">{i + 1}</span>
+                <span className="mr-4 w-6 select-none text-right text-muted-foreground/50">
+                  {i + 1}
+                </span>
                 <span className={l.c}>{l.t || "\u00A0"}</span>
               </div>
             ))}

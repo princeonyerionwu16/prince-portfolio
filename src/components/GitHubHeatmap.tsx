@@ -33,7 +33,9 @@ export function GitHubHeatmap() {
 
   return (
     <section id="activity" className="relative mx-auto max-w-6xl px-4 py-24">
-      <p className="mb-3 text-xs font-mono uppercase tracking-[0.3em] text-[var(--neon-cyan)]">// activity</p>
+      <p className="mb-3 text-xs font-mono uppercase tracking-[0.3em] text-[var(--neon-cyan)]">
+        // activity
+      </p>
       <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
         <h2 className="max-w-2xl font-display text-3xl font-bold tracking-tight sm:text-4xl">
           A year of <span className="text-gradient">shipping</span>

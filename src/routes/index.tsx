@@ -27,7 +27,10 @@ export const Route = createFileRoute("/")({
           "Portfolio of Onyerionwu Prince — Nigerian web developer crafting fast, beautiful, and challenging products with React, TypeScript, and modern tooling.",
       },
       { property: "og:title", content: "Onyerionwu Prince — Web Developer" },
-      { property: "og:description", content: "Cinematic portfolio of a Nigerian full-stack developer." },
+      {
+        property: "og:description",
+        content: "Cinematic portfolio of a Nigerian full-stack developer.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
